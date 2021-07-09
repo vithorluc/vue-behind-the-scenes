@@ -16,9 +16,38 @@ const app = Vue.createApp({
       //console.log(this.$refs.useText)
     },
   },
+  beforeCreate(){
+    console.log('beforeCreate()'); 
+  },
+  created(){
+    console.log('created()')
+  },
+  beforeMount(){
+    console.log('beforeMount()')
+  },
+  mounted(){
+    console.log('mounted()')
+  },
+  beforeUpdate(){
+    console.log('beforeUpdate()')
+  },
+  updated(){
+    console.log('updated()')
+  },
+  beforeUnmount(){
+    console.log('beforeUnmount()')
+  },
+  unmounted(){
+    console.log('unmounted()')
+  }
 });
 
 app.mount('#app');
+
+setTimeout(() => {
+  app.unmount()
+}, 3000)
+
 
 // how vue works under the hoods
 const data = {
@@ -28,7 +57,7 @@ const data = {
 
 const Handler = {
   set(target, key, value) {
-    console.log(key, value)
+   // console.log(key, value)
     if(key === 'message') {
       target.longMessage = value + "World"
     }
@@ -40,4 +69,4 @@ const proxy = new Proxy(data, Handler)
 
 proxy.message = 'Hello!!!!'
 
-console.log(proxy.longMessage)
+//console.log(proxy.longMessage)
