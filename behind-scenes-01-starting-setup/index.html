@@ -18,7 +18,10 @@
     </header>
     <section id="app">
       <h2>How Vue Works</h2>
-      <input type="text" @input="saveInput">
+      <!-- ref it's a feature provided by vue to take 
+      dom elements and manipulate. ref retrive the values only when you need that
+      on the function call -->
+      <input type="text" ref="userText">
       <button @click="setText">Set Text</button>
       <p>{{ message }}</p>
     </section>

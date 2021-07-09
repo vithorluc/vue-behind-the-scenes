@@ -10,7 +10,10 @@ const app = Vue.createApp({
       this.currentUserInput = event.target.value;
     },
     setText() {
-      this.message = this.currentUserInput;
+      //this.message = this.currentUserInput;
+      //$refs it's a vue provided propriety (retrive elements from the dom element)
+      this.message = this.$refs.userText.value
+      //console.log(this.$refs.useText)
     },
   },
 });
